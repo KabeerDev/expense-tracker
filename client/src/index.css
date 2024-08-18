@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.expense-container::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+.expense-container::-webkit-scrollbar-thumb {
+    background: #E5E7EB;
+    border-radius: 5px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.MuiFormControl-root {
+    width: 30%;
+}
+
+.toast-animation {
+    animation: signup-response 0.5s 1;
+    -webkit-animation: signup-response 0.5s 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    -webkit-animation-delay: 1s;
+    /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes signup-response {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes signup-response {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.show {
+    animation: show 0.3s 1;
+    -webkit-animation: show 0.3s 1;
+    animation-fill-mode: forwards;
+    /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+    transform: scale(0);
+    opacity: 0;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
