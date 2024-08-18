@@ -37,3 +37,4 @@ export { default as SuccessIcon } from "./icons/success.svg";
 export { default as SignupImg } from "./img/signup.png";
 export { default as LoginImg } from "./img/login.avif";
 export { default as ErrorImg } from "./img/error.png";
+export { default as Logo } from "./img/logo.png"
