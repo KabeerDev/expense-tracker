@@ -62,7 +62,7 @@ const Update = () => {
 
   return (
     <>
-      <Meta title={`update ${type}`} />
+      <Meta title={`update ${type}`} pageURL={window.location.href} />
       {showCat && <Categories type={type} category={category} setCategory={setCategory} cat={showCat} setCat={setShowCat} />}
       <div className='flex justify-center items-center h-full'>
         <form onSubmit={handleSubmit(onSubmit)} className='min-w-72 md:min-w-96 flex flex-col gap-3'>

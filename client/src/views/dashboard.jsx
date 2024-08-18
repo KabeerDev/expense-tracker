@@ -57,7 +57,7 @@ const Dashboard = () => {
     if (detail) return <Detail values={detail} setValues={setDetail} />
     return (
         <div className='w-full h-full'>
-            <Meta title="Money Manager - Dashboard" />
+            <Meta title="Money Manager - Dashboard" pageURL={window.location.href} desc="money manager - an efficient way of maniging budget and categorize them" />
             <Stats data={filteredData} />
             <div className='w-2/3 mx-auto max-h-screen flex flex-col items-end gap-3 mt-3'>
                 <div className='w-full flex items-center justify-end gap-5'>

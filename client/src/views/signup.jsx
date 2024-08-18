@@ -38,7 +38,7 @@ const Signup = () => {
 
   return (
     <>
-    <Meta title="Signup" />
+      <Meta title="Signup" pageURL={window.location.href} desc="money manager - register on money manager and simplify your budget" />
       <div className='w-full h-screen flex items-center'>
         <div className='w-2/4 md:grid place-content-center 3xl:hidden hidden'>
           <img src={SignupImg} alt="signup image" className='max-h-svh' />

@@ -29,7 +29,7 @@ const Signin = () => {
 
   return (
     <div className='w-full h-screen flex items-center'>
-    <Meta title="Login" />
+    <Meta title="Login" pageURL={window.location.href} desc="money manager - signin on money manager and simplify your budget" />
     <div className='md:w-2/4 3xl:w-full w-full grid place-content-center'>
         <form onSubmit={handleSubmit(onSubmit)} className='my-8 w-96 flex flex-col gap-8'>
           <h1 className='font-semibold text-2xl text-center'>Welcome Back</h1>

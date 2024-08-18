@@ -111,3 +111,10 @@ export const compareTime = () => {
     const timeInHours = timeInMilli / (1000 * 60 * 60);
     return timeInHours;
 };
+
+export const char_length = (text = "", length) => {
+    if (text.length == 0) return "";
+    if (length <= text.length) return text;
+    const i = text.indexOf(" ", length);
+    return text.substring(0, i + 1);
+};

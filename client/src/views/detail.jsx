@@ -15,7 +15,7 @@ const Detail = ({ values, setValues }) => {
 
     return (
         <div className="w-full h-screen bg-white show">
-            <Meta title={`${values.type} details`} />
+            <Meta title={`${values.type} details`} pageURL={window.location.href} desc="money manager - an efficient way of maniging budget and categorize them" />
             <div
                 className="text-lg font-semibold cursor-pointer px-4 py-3 hover:text-gray active:text-black"
                 onClick={() => setValues(false)}
