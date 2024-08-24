@@ -4,8 +4,11 @@ import ToastNotification from '../components/ToastNotification';
 import Navbar from '../components/navbar';
 import { useMatch } from 'react-router-dom';
 import usePage from '../hooks/usePage';
+import SessionModal from '../components/sessionModal';
+import useSession from './../hooks/useSession';
 
 const Layout = ({ children }) => {
+    const { isExpired } = useSession();
     const { Toast } = useToast();
     const { path } = usePage();
     const signup = useMatch('/signup');
@@ -13,7 +16,9 @@ const Layout = ({ children }) => {
     const checkAuth = () => {
         return signup || login;
     };
-    const isAuth = checkAuth();
+    const isAuth = checkAuth(); 
+
+    if (isExpired) return <SessionModal />;
 
     return (
         <>

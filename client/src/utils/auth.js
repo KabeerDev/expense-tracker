@@ -8,9 +8,8 @@ export const getToken = () => {
 export const removeToken = () => {
     localStorage.removeItem('token');
 }
-export const setTime = (token) => {
-    if (!token) return;
-    localStorage.setItem('time', JSON.stringify(Date.noW()));
+export const setTime = () => {
+    localStorage.setItem('time', JSON.stringify(Date.now()));
 }
 export const getTime = () => {
     return localStorage.getItem('time');

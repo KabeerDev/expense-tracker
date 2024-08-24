@@ -34,18 +34,6 @@ async function loginController(req, res) {
     }
 }
 
-async function refreshToken(req, res) {
-    try {
-        const userData = req.user;
-        if (!userData) return res.status(404).json({ success: false, message: "Token did not found!" });
-        const token = await generateToken(userData.id, userData.name, userData.email);
-        if (!token) return res.status(404).json({ success: false, message: "Something went wrong!" });
-        return res.status(200).json({ token });
-    } catch (err) {
-        return res.status(500).json({ success: false, message: "Internal server error" });
-    }
-}
-
 async function getUserController(req, res) {
     try {
         const user = req.user;
@@ -55,4 +43,4 @@ async function getUserController(req, res) {
     }
 }
 
-module.exports = { signupController, loginController, refreshToken, getUserController };
+module.exports = { signupController, loginController, getUserController };

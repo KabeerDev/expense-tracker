@@ -15,7 +15,7 @@ async function verifyUser(email, password) {
 
 async function generateToken(id, name, email) {
     const payload = { id: id, name: name, email: email };
-    const token = jwt.sign(payload, secret, { expiresIn: 60 * 60 * 24 });
+    const token = jwt.sign(payload, secret, { expiresIn: '30d' });
     return token;
 }
 

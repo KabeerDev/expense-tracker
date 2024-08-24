@@ -6,7 +6,6 @@ import { signInUser } from './../services/auth';
 import { AuthContext } from './AuthContext';
 import useAxiosInterceptor from '../hooks/useAxiosInterceptors';
 import { compareTime } from '../utils/helper';
-import { refreshToken } from './../services/auth';
 
 const AuthProvider = (props) => {
   useAxiosInterceptor();
@@ -15,6 +14,7 @@ const AuthProvider = (props) => {
   const { pathname } = useLocation();
   const [user, setUser] = useState();
   const [LoadingUserData, setLoadingUserData] = useState(true);
+  const [isExpired, setIsExpired] = useState(false);
   const token = getToken();
   const isAuthenticated = Boolean(token);
 
@@ -44,6 +44,7 @@ const AuthProvider = (props) => {
     setUser(undefined);
     removeToken();
     removeTime();
+    setIsExpired(false);
     navigate("/signin");
   };
 
@@ -63,23 +64,13 @@ const AuthProvider = (props) => {
         setLoadingUserData(false);
       }
     }
-    async function newToken() {
-      try {
-        setLoadingUserData(true);
-        const { token } = await refreshToken();
-        setToken(token);
-        setTime();
-      } catch (err) {
-        console.log(err);
-        return err;
-      };
-    };
     if (token) {
       const hour = compareTime();
-      if (hour >= 22) {
-        newToken();
-      };
-      getUserdata();
+      if (hour >= 24 * 30) {
+        setIsExpired(true);
+      } else {
+        getUserdata();
+      }
     }
   }, [])
 
@@ -89,6 +80,7 @@ const AuthProvider = (props) => {
       value={{
         isAuthenticated,
         user,
+        isExpired,
         LoadingUserData,
         login,
         logout
